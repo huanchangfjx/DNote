@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="config_delBtnAnimTime">10</integer>
+    <integer name="config_upListHeaderViewHeight">70</integer>
+    <integer name="config_screenWidth">480</integer>
+    <integer name="config_backToMainAnimWidth">483</integer>
+    <integer name="config_editFrameAnimX">-3</integer>
+    <integer name="config_delBtnEdge">127</integer>
+    <integer name="config_longLengthWeiboHorizontalPadding">34</integer>
+    <integer name="config_longLengthWeiboVerticalPadding">12</integer>
+    <integer name="config_longLengthWeiboPaddingTop">5</integer>
+    <integer name="config_notelistPaddingBottom">12</integer>
+</resources>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/menu_head"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/dialog_click_tel_title"
+            android:layout_width="215.0dip"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:shadowColor="#23ffffff"
+            android:shadowDy="2.0"
+            android:shadowRadius="0.1"
+            android:singleLine="true"
+            android:textColor="#ff5b5b5b"
+            android:textSize="13.5dip" />
+
+        <TextView
+            android:id="@+id/dialog_click_cancel_tel"
+            android:layout_width="66.0dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="4.0dip"
+            android:background="@drawable/menu_btn_cancel"
+            android:gravity="center"
+            android:shadowColor="#23ffffff"
+            android:shadowDy="2.0"
+            android:shadowRadius="0.1"
+            android:text="@string/dialog_title_cancel"
+            android:textColor="#ff5b5b5b"
+            android:textSize="13.5dip" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/menu_background"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/dialog_click_tel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20.0dip"
+            android:layout_marginRight="20.0dip"
+            android:layout_marginTop="15.5dip"
+            android:background="@drawable/menu_btn_back"
+            android:gravity="center"
+            android:shadowColor="#23000000"
+            android:shadowDy="-2.0"
+            android:shadowRadius="0.1"
+            android:text="@string/dialog_call"
+            android:textColor="#ffffffff"
+            android:textSize="18.0dip" />
+
+        <TextView
+            android:id="@+id/dialog_click_send_message"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20.0dip"
+            android:layout_marginRight="20.0dip"
+            android:layout_marginTop="7.5dip"
+            android:background="@drawable/menu_btn_back"
+            android:gravity="center"
+            android:shadowColor="#23000000"
+            android:shadowDy="-2.0"
+            android:shadowRadius="0.1"
+            android:text="@string/dialog_send_message"
+            android:textColor="#ffffffff"
+            android:textSize="18.0dip" />
+
+        <TextView
+            android:id="@+id/dialog_click_add_contact"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18.5dip"
+            android:layout_marginLeft="20.0dip"
+            android:layout_marginRight="20.0dip"
+            android:layout_marginTop="7.5dip"
+            android:background="@drawable/menu_btn_back"
+            android:gravity="center"
+            android:shadowColor="#23000000"
+            android:shadowDy="-2.0"
+            android:shadowRadius="0.1"
+            android:text="@string/dialog_add_contact"
+            android:textColor="#ffffffff"
+            android:textSize="18.0dip" />
+    </LinearLayout>
+
+</LinearLayout>

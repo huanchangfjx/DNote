@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android" >
+<!-- 1.alpha     渐变透明度动画效果
+2.scale    渐变尺寸伸缩动画效果
+frame by frame animation 画面转换动画有以下两种类型：
+1.translate   画面转换位置移动动画效果
+2.rotate    画面转移旋转动画效果 -->
+    <translate
+        android:duration="500"
+        android:fromYDelta="100.0%p"
+        android:toYDelta="0.0" />
+
+</set>

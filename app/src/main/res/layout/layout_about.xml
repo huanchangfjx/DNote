@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <View
+        android:id="@+id/about_bg"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#B2000000"
+        android:visibility="gone"
+        android:clickable="true"
+        android:onClick="doClickBg"
+         />
+
+    <FrameLayout
+        android:id="@+id/about_fl"
+        android:layout_width="fill_parent"
+        android:layout_height="480.0dip"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+         >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/about_bg" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="35.5dip"
+                android:src="@mipmap/logo" />
+
+            <View
+                android:id="@+id/slash"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:layout_marginTop="120.0dip"
+                android:background="#ffeaeaea" />
+
+            <RelativeLayout
+                android:id="@+id/layout_info"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@id/slash" >
+
+                <Button
+                    android:id="@+id/share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="39.5dip"
+                    android:background="@drawable/share_button_selector"
+                    android:gravity="center"
+                    android:text="@string/share"
+                    android:textColor="@color/update_textcolor" />
+
+                <Button
+                    android:id="@+id/update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/share"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/share_button_selector"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:text="@string/update"
+                    android:textColor="@color/update_textcolor" />
+
+                <TextView
+                    android:id="@+id/tv_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/update"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#ff686868"
+                    android:textSize="9.0dip" />
+
+                <TextView
+                    android:id="@+id/tv_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_version"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20.0dip"
+                    android:autoLink="email"
+                    android:linksClickable="false"
+                    android:text="@string/support_email"
+                    android:textColor="#ff1f73c1"
+                    android:textSize="9.0dip" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_email"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="19.0dip"
+                    android:text="@string/smartisan"
+                    android:textColor="#ffa3a3a3"
+                    android:textSize="9.0dip" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="32.0dip"
+                    android:text="@string/copyrights"
+                    android:textColor="#ffa3a3a3"
+                    android:textSize="6.0dip" />
+            </RelativeLayout>
+
+            <TableLayout
+                android:id="@+id/layout_share"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@id/slash"
+                android:visibility="gone" >
+
+                <TableRow android:layout_weight="1.0" >
+
+                    <TextView
+                        android:id="@+id/share_weibo"
+                        android:layout_width="0.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.0"
+                        android:background="@null"
+                        android:drawableTop="@mipmap/weibo"
+                        android:gravity="center"
+                        android:text="@string/weibo"
+                        android:textColor="#ffa3a3a3" />
+
+                    <View
+                        android:layout_width="1.0dip"
+                        android:layout_height="fill_parent"
+                        android:background="#ffeaeaea" />
+
+                    <TextView
+                        android:id="@+id/share_weixin"
+                        android:layout_width="0.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.0"
+                        android:background="@null"
+                        android:drawableTop="@mipmap/wx"
+                        android:gravity="center"
+                        android:text="@string/we_chat"
+                        android:textColor="#ffa3a3a3" />
+
+                    <View
+                        android:layout_width="1.0dip"
+                        android:layout_height="fill_parent"
+                        android:background="#ffeaeaea" />
+
+                    <TextView
+                        android:id="@+id/share_twitter"
+                        android:layout_width="0.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.0"
+                        android:background="@null"
+                        android:drawableTop="@mipmap/twitter"
+                        android:gravity="center"
+                        android:text="@string/twitter"
+                        android:textColor="#ffa3a3a3" />
+                </TableRow>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0dip"
+                    android:background="#ffeaeaea" />
+
+                <TableRow android:layout_weight="1.0" >
+
+                    <TextView
+                        android:id="@+id/share_qzone"
+                        android:layout_width="0.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.0"
+                        android:background="@null"
+                        android:drawableTop="@mipmap/qzone"
+                        android:gravity="center"
+                        android:text="@string/qzone"
+                        android:textColor="#ffa3a3a3" />
+
+                    <View
+                        android:layout_width="1.0dip"
+                        android:layout_height="fill_parent"
+                        android:background="#ffeaeaea" />
+
+                    <TextView
+                        android:id="@+id/share_weixin_timeline"
+                        android:layout_width="0.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.0"
+                        android:background="@null"
+                        android:drawableTop="@mipmap/pyq"
+                        android:gravity="center"
+                        android:text="@string/we_chat_timeline"
+                        android:textColor="#ffa3a3a3" />
+
+                    <View
+                        android:layout_width="1.0dip"
+                        android:layout_height="fill_parent"
+                        android:background="#ffeaeaea" />
+
+                    <TextView
+                        android:id="@+id/share_facebook"
+                        android:layout_width="0.0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.0"
+                        android:background="@null"
+                        android:drawableTop="@mipmap/fb"
+                        android:gravity="center"
+                        android:text="@string/facebook"
+                        android:textColor="#ffa3a3a3" />
+                </TableRow>
+            </TableLayout>
+        </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right|center"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="3.0dip"
+            android:background="@null"
+            android:clickable="true"
+            android:onClick="hideInfoDialog"
+            android:src="@mipmap/back" />
+    </FrameLayout>
+
+</FrameLayout>

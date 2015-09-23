@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/list_item"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/linearlayout_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center"
+        android:layout_marginLeft="@dimen/list_item_edit_margin_left"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button_send"
+            android:layout_width="@dimen/list_item_edit_button_size"
+            android:layout_height="@dimen/list_item_edit_button_size"
+            android:layout_marginLeft="@dimen/list_item_edit_left_button_margin_left"
+            android:background="@drawable/send_back" />
+
+        <Button
+            android:id="@+id/button_edit"
+            android:layout_width="@dimen/list_item_edit_button_size"
+            android:layout_height="@dimen/list_item_edit_button_size"
+            android:layout_marginLeft="@dimen/list_item_edit_center_button_margin"
+            android:layout_marginRight="@dimen/list_item_edit_center_button_margin"
+            android:background="@drawable/fav_back" />
+
+        <Button
+            android:id="@+id/button_delete"
+            android:layout_width="@dimen/list_item_edit_button_size"
+            android:layout_height="@dimen/list_item_edit_button_size"
+            android:background="@drawable/delete_back" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/detail_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/list_item_detail_margin_top"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/list_item_detail_padding_left"
+        android:paddingRight="@dimen/list_item_detail_padding_right" >
+
+        <ImageView
+            android:id="@+id/checkbox_delete"
+            android:layout_width="@dimen/list_item_checkbox_size"
+            android:layout_height="@dimen/list_item_checkbox_size"
+            android:layout_marginLeft="@dimen/list_item_checkbox_margin_left"
+            android:layout_marginRight="@dimen/list_item_checkbox_margin_right"
+            android:scaleType="center"
+            android:src="@mipmap/select_circle"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="0.0dip"
+            android:layout_height="@dimen/list_item_content_height"
+            android:layout_weight="1.0"
+            android:background="@drawable/list_item_back"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/list_item_content_padding_bottom"
+            android:paddingLeft="@dimen/list_item_content_padding_left"
+            android:paddingRight="@dimen/list_item_content_padding_right"
+            android:paddingTop="@dimen/list_item_content_padding_top" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/list_item_text_margin_bottom"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@id/textview_ago"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@color/time_color"
+                    android:textSize="@dimen/time_text_size" />
+
+                <TextView
+                    android:id="@+id/textview_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@color/time_color"
+                    android:textSize="@dimen/time_text_size" />
+
+                <ImageView
+                    android:id="@+id/imageview_fav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/list_item_fav_margin_left"
+                    android:background="@mipmap/fav_green"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textview_summary"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/list_item_summary_height"
+                android:layout_marginTop="@dimen/list_item_summary_margin_top"
+                android:lineSpacingExtra="@dimen/list_item_summary_linespace"
+                android:textColor="@color/detail_color"
+                android:textSize="@dimen/detail_text_size" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayout_edit_mask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center"
+        android:layout_marginLeft="@dimen/list_item_mask_margin_left"
+        android:alpha="0.0"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:layout_width="@dimen/list_item_edit_button_size"
+            android:layout_height="@dimen/list_item_edit_button_size"
+            android:layout_marginLeft="@dimen/list_item_mask_left_button_margin_left"
+            android:background="@drawable/send_back"
+            android:enabled="false" />
+
+        <Button
+            android:layout_width="@dimen/list_item_edit_button_size"
+            android:layout_height="@dimen/list_item_edit_button_size"
+            android:layout_marginLeft="@dimen/list_item_mask_center_button_margin"
+            android:layout_marginRight="@dimen/list_item_mask_center_button_margin"
+            android:background="@drawable/fav_back"
+            android:enabled="false" />
+
+        <Button
+            android:layout_width="@dimen/list_item_edit_button_size"
+            android:layout_height="@dimen/list_item_edit_button_size"
+            android:background="@drawable/delete_back"
+            android:enabled="false" />
+    </LinearLayout>
+
+</FrameLayout>

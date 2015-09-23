@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="true" >
+
+    <item
+        android:drawable="@mipmap/del_btn_mov_0001"
+        android:duration="@integer/config_delBtnAnimTime"/>
+    <item
+        android:drawable="@mipmap/del_btn_mov_0003"
+        android:duration="@integer/config_delBtnAnimTime"/>
+    <item
+        android:drawable="@mipmap/del_btn_mov_0005"
+        android:duration="@integer/config_delBtnAnimTime"/>
+    <item
+        android:drawable="@mipmap/del_btn_mov_0007"
+        android:duration="@integer/config_delBtnAnimTime"/>
+    <item
+        android:drawable="@mipmap/del_btn_mov_0009"
+        android:duration="@integer/config_delBtnAnimTime"/>
+    <item
+        android:drawable="@mipmap/del_btn_mov_0011"
+        android:duration="@integer/config_delBtnAnimTime"/>
+    <item
+        android:drawable="@mipmap/del_btn_mov_0013"
+        android:duration="@integer/config_delBtnAnimTime"/>
+    <item
+        android:drawable="@mipmap/del_btn_mov_0015"
+        android:duration="@integer/config_delBtnAnimTime"/>
+    <item
+        android:drawable="@mipmap/del_btn_mov_0017"
+        android:duration="@integer/config_delBtnAnimTime"/>
+    <item
+        android:drawable="@mipmap/del_btn_mov_0019"
+        android:duration="@integer/config_delBtnAnimTime"/>
+    <item
+        android:drawable="@mipmap/del_btn_mov_0021"
+        android:duration="@integer/config_delBtnAnimTime"/>
+    <item
+        android:drawable="@mipmap/del_btn_mov_0023"
+        android:duration="@integer/config_delBtnAnimTime"/>
+    <item
+        android:drawable="@mipmap/del_btn_mov_0025"
+        android:duration="@integer/config_delBtnAnimTime"/>
+    <item
+        android:drawable="@mipmap/del_btn_mov_0027"
+        android:duration="@integer/config_delBtnAnimTime"/>
+    <item
+        android:drawable="@mipmap/del_btn_mov_0029"
+        android:duration="@integer/config_delBtnAnimTime"/>
+
+</animation-list>

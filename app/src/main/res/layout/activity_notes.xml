@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dslv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:id="@+id/relativelayout_notes"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/background" >
+
+        <FrameLayout
+            android:id="@+id/list_fl"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="@dimen/list_margin_top"
+            android:background="@drawable/background" >
+
+            <RelativeLayout
+                android:id="@+id/empty_note_view"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="@dimen/empty_note_view_top"
+                android:visibility="visible" >
+
+                <TextView
+                    android:id="@+id/empty_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/empty_image_top"
+                    android:background="@mipmap/note_empty" />
+
+                <TextView
+                    android:id="@+id/empty_primary_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/empty_image"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/null_note_title"
+                    android:textColor="@color/list_empty_view_text_color"
+                    android:textSize="@dimen/empty_primary_hint_size" />
+
+                <TextView
+                    android:id="@+id/empty_primary_hint1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/empty_primary_hint"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/empty_primary_hint1_top"
+                    android:text="@string/null_note_summary"
+                    android:textColor="@color/list_empty_view_text_color"
+                    android:textSize="@dimen/empty_primary_hint1_size" />
+            </RelativeLayout>
+
+            <com.brcorner.drag_sort_listview_lib.DragSortListView
+                android:id="@+id/listview_notes"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                float_background_color="@android:color/transparent"
+                track_drag_scroll="false"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="@android:color/transparent"
+                android:fadingEdge="none"
+                android:fadingEdgeLength="0.0dip"
+                android:listSelector="@android:color/transparent"
+                android:overScrollMode="always"
+                dslv:drag_scroll_start="0.25"
+                dslv:max_drag_scroll_speed="0.1" />
+
+            <com.brcorner.dnote.android.view.UpListView
+                android:id="@+id/listview_clip"
+                android:layout_width="@dimen/list_clip_width"
+                android:layout_height="fill_parent"
+                android:fadingEdge="none"
+                android:fadingEdgeLength="0.0dip"
+                android:overScrollMode="always"
+                android:scrollbars="none" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/edit_fl"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="@dimen/background_to_right"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/note_edit_margin_top" >
+
+                <ScrollView
+                    android:id="@+id/scrollview_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="-5.0dip"
+                    android:isScrollContainer="true"
+                    android:scrollbars="none" >
+
+                    <RelativeLayout
+                        android:id="@+id/relativeLayout_edit_scroll"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:measureAllChildren="false"
+                        android:orientation="vertical" >
+
+                        <FrameLayout
+                            android:id="@+id/frameLayout_edit_scroll"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:background="@drawable/detail_back"
+                            android:measureAllChildren="false"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/scroll_frame_padding_left"
+                            android:paddingRight="@dimen/scroll_frame_padding_right" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="552.5dip"
+                                android:paddingTop="@dimen/frameLayout_edit_padding" />
+
+                            <EditText
+                                android:id="@+id/edittext_note"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="top"
+                                android:background="@null"
+                                android:lineSpacingExtra="@dimen/scroll_edit_linespace"
+                                android:paddingTop="@dimen/frameLayout_edit_padding"
+                                android:textColor="@color/detail_color"
+                                android:textCursorDrawable="@drawable/mycursor"
+                                android:textSize="@dimen/detail_text_size"
+                                android:visibility="gone" />
+
+                            <com.brcorner.dnote.android.view.LinkTextView
+                                android:id="@+id/edittext_mask"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:autoLink="all"
+                                android:cursorVisible="false"
+                                android:editable="true"
+                                android:focusableInTouchMode="true"
+                                android:gravity="top"
+                                android:lineSpacingExtra="@dimen/scroll_edit_linespace"
+                                android:minHeight="@dimen/scroll_edit_content_min_height"
+                                android:paddingTop="@dimen/frameLayout_edit_padding"
+                                android:textColor="@color/detail_color"
+                                android:textIsSelectable="true"
+                                android:textSize="@dimen/detail_text_size" />
+
+                            <EditText
+                                android:id="@+id/edittext_anim"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:gravity="top"
+                                android:inputType="none"
+                                android:lineSpacingExtra="@dimen/scroll_edit_linespace"
+                                android:minHeight="@dimen/scroll_edit_content_min_height"
+                                android:paddingTop="@dimen/frameLayout_edit_padding"
+                                android:textColor="@color/detail_color"
+                                android:textSize="@dimen/detail_text_size" />
+                        </FrameLayout>
+
+                        <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/top_length"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginRight="@dimen/top_to_right"
+                            android:background="@drawable/note_paper_top"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="38.0dip" >
+
+                            <TextView
+                                android:id="@+id/textview_call_info"
+                                android:layout_width="wrap_content"
+                                android:layout_height="fill_parent"
+                                android:layout_alignParentLeft="true"
+                                android:ellipsize="end"
+                                android:gravity="center_vertical"
+                                android:maxWidth="280.0dip"
+                                android:singleLine="true"
+                                android:textColor="@color/time_color"
+                                android:textSize="@dimen/time_text_size"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/textview_ago"
+                                android:layout_width="wrap_content"
+                                android:layout_height="fill_parent"
+                                android:layout_alignParentLeft="true"
+                                android:gravity="center_vertical"
+                                android:singleLine="true"
+                                android:textColor="@color/time_color"
+                                android:textSize="@dimen/time_text_size" />
+
+                            <TextView
+                                android:id="@+id/time_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="13.5dip"
+                                android:layout_toRightOf="@id/textview_ago"
+                                android:ellipsize="end"
+                                android:gravity="center_vertical"
+                                android:singleLine="true"
+                                android:textColor="@color/time_color"
+                                android:textSize="@dimen/time_text_size" />
+
+                            <CheckBox
+                                android:id="@+id/fav_checkBox"
+                                android:layout_width="58.0dip"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:button="@drawable/fav_checkbox" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/frameLayout_edit_scroll"
+                            android:layout_marginRight="@dimen/bottom_to_right"
+                            android:background="@drawable/note_paper_bottom"
+                            android:orientation="vertical" />
+                    </RelativeLayout>
+                </ScrollView>
+            </LinearLayout>
+        </FrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativelayout_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/titlebar_bg"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/title_bar_padding_right"
+            android:paddingRight="@dimen/title_bar_padding_right" >
+
+            <ImageView
+                android:id="@+id/info_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/btn_back"
+                android:clickable="true"
+                android:onClick="showInfoDialog"
+                android:scaleType="center"
+                android:src="@mipmap/info" />
+
+            <Button
+                android:id="@+id/back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/note_button_back"
+                android:clickable="true"
+                android:onClick="backToList"
+                android:shadowColor="@color/action_bar_text_shadow_color"
+                android:shadowDy="2.0"
+                android:shadowRadius="0.1"
+                android:text="列表"
+                android:textColor="@color/button_text_color"
+                android:textSize="@dimen/button_text_size" />
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:paddingBottom="5.0dip"
+                android:shadowColor="@color/action_bar_text_shadow_color"
+                android:shadowDy="2.0"
+                android:shadowRadius="0.1"
+                android:text="@string/app_name"
+                android:textColor="@color/title_bar_app_name_color"
+                android:textSize="@dimen/title_bar_app_name_text_size" />
+
+            <ImageView
+                android:id="@+id/add_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/btn_back"
+                android:clickable="true"
+                android:onClick="showEdit"
+                android:scaleType="center"
+                android:src="@mipmap/new_note_icon" />
+
+            <TextView
+                android:id="@+id/complete_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/btn_back"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="doFinish"
+                android:scaleType="center"
+                android:text="完成"
+                android:textColor="@color/button_text_color"
+                android:textSize="@dimen/button_text_size"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/delete_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/batch_delete_back"
+                android:clickable="true"
+                android:onClick="showDeleteDialog"
+                android:scaleType="center"
+                android:shadowColor="@color/action_bar_text_shadow_color"
+                android:shadowDy="2.0"
+                android:shadowRadius="0.1"
+                android:textColor="@color/button_text_color"
+                android:textSize="@dimen/button_text_size"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/send_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/delete_image"
+                android:background="@drawable/btn_back"
+                android:clickable="true"
+                android:onClick="showSendDialog"
+                android:scaleType="center"
+                android:src="@mipmap/send_icon"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ViewStub
+        android:id="@+id/viewstub_about"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout="@layout/layout_about" />
+
+</FrameLayout>

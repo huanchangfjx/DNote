@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dialog_item_height"
+            android:background="@mipmap/menu_head">
+
+            <TextView
+                android:layout_width="@dimen/dialog_title_textview_width"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:paddingBottom="1.0dip"
+                android:text="@string/sinaweibo_delete_account_dialog_confirm"
+                android:textColor="@color/menu_header_prompt_text_color"
+                android:textSize="@dimen/button_text_size" />
+
+            <Button
+                android:id="@id/share_dialog_cancel"
+                android:layout_width="@dimen/dialog_title_button_width"
+                android:layout_height="@dimen/dialog_title_button_height"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="1.0dip"
+                android:background="@drawable/menu_btn_cancel"
+                android:gravity="center"
+                android:text="@string/share_dialog_cancel"
+                android:textColor="@color/menu_header_prompt_text_color"
+                android:textSize="@dimen/button_text_size" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/menu_background"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dialog_item_padding_Bottom"
+            android:paddingTop="@dimen/dialog_item_padding_top"
+            android:tileMode="repeat">
+
+            <Button
+                android:id="@id/delete_note_confirm"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginRight="20.0dip"
+                android:background="@drawable/menu_btn_red_back"
+                android:gravity="center"
+                android:shadowColor="@color/menu_delete_text_shadow_color"
+                android:shadowDy="2.0"
+                android:shadowRadius="0.1"
+                android:text="@string/delete_note_confirm"
+                android:textColor="@color/menu_text_color"
+                android:textSize="@dimen/menu_item_text_size" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relativelayout_notes"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background" >
+
+    <ScrollView
+        android:id="@+id/scrollview_edit"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:isScrollContainer="true"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/weibo_body"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/longlength_weibo_body_margin_top"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="@dimen/longlength_weibo_body_width"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/preview_head"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:layout_width="@dimen/longlength_weibo_body_width"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/preview_bottom"
+                    android:orientation="vertical" >
+
+                    <com.brcorner.dnote.view.TwoSideAlignTextView
+                        android:id="@+id/content"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:autoLink="all"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:gravity="top"
+                        android:lineSpacingExtra="11.0px"
+                        android:textColor="@color/preview_long_length_weibo_detailed_text_color"
+                        android:textSize="@dimen/preview_detail_text_size" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/relativelayout_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/titlebar_bg"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/title_bar_padding_left"
+        android:paddingRight="@dimen/title_bar_padding_right" >
+
+        <Button
+            android:id="@+id/button_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/btn_back"
+            android:shadowColor="@color/action_bar_text_shadow_color"
+            android:shadowDy="2.0"
+            android:shadowRadius="0.1"
+            android:text="@string/title_bar_cancel"
+            android:textColor="@color/button_text_color"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:id="@+id/button_save_and_send_long_weibo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_back"
+            android:shadowColor="@color/action_bar_text_shadow_color"
+            android:shadowDy="2.0"
+            android:shadowRadius="0.1"
+            android:text="@string/title_bar_save_send"
+            android:textColor="@color/button_text_color"
+            android:textSize="@dimen/button_text_size" />
+    </RelativeLayout>
+
+</RelativeLayout>

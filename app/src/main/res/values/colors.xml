@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cursor_color">#ffab8a72</color>
+    <color name="title_bar_app_name_color">#ffe2dfde</color>
+    <color name="button_text_color">#ffffffff</color>
+    <color name="action_bar_text_shadow_color">#ff453d3b</color>
+    <color name="menu_text_shadow_color">#ff9699a2</color>
+    <color name="menu_delete_text_shadow_color">#ff9c4d49</color>
+    <color name="time_color">#ffb9a691</color>
+    <color name="detail_color">#ff6e432f</color>
+    <color name="search_color">#ff000000</color>
+    <color name="menu_text_color">#ffffffff</color>
+    <color name="menu_header_prompt_text_color">#ff5b5b5b</color>
+    <color name="long_length_weibo_exceed_length_color">#ffdb6458</color>
+    <color name="preview_long_length_weibo_detailed_text_color">#ff645647</color>
+    <color name="sinaweibo_share_edit_text_color">#ff66615f</color>
+    <color name="sinaweibo_share_edit_text_color_hint">#ffcbc7c4</color>
+    <color name="sinaweibo_share_bg_color">#fffaf8f4</color>
+    <color name="sinaweibo_popup_account_manager_text_color">#ff7b7b7b</color>
+    <color name="sinaweibo_popup_account_manager_text_color_pressed">#ffffffff</color>
+    <color name="sianweibo_account_manager_background_color">#fffaf8f4</color>
+    <color name="list_empty_view_text_color">#ffd0b693</color>
+</resources>
