@@ -342,8 +342,8 @@
 
     <ViewStub
         android:id="@+id/viewstub_about"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout="@layout/layout_about" />
 
 </FrameLayout>

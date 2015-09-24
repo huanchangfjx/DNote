@@ -55,6 +55,8 @@
                     android:background="@drawable/share_button_selector"
                     android:gravity="center"
                     android:text="@string/share"
+                    android:clickable="true"
+                    android:onClick="share"
                     android:textColor="@color/update_textcolor" />
 
                 <Button

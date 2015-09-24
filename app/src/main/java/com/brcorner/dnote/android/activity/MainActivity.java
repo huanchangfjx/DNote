@@ -38,6 +38,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.brcorner.dnote.android.R;
@@ -45,6 +46,7 @@ import com.brcorner.dnote.android.adapter.NoteAdapter;
 import com.brcorner.dnote.android.data.ConstantData;
 import com.brcorner.dnote.android.data.DNoteDB;
 import com.brcorner.dnote.android.listener.MyAnimationListener;
+import com.brcorner.dnote.android.listener.MyHideAnimationListener;
 import com.brcorner.dnote.android.model.NoteModel;
 import com.brcorner.dnote.android.utils.CommonUtils;
 import com.brcorner.drag_sort_listview_lib.DragSortController;
@@ -69,7 +71,7 @@ public class MainActivity extends Activity {
 
 	private ViewStub viewstub_about;
 
-	private Animation bottom_in_anim, bottom_out_anim, fade_in, fade_out,
+	private Animation bottom_in_anim, bottom_out_anim, fade_in,fade_in_300, fade_out,
 			left_in, left_out, right_in, right_out, zoom_translate;
 	private AnimationDrawable animationDrawable;
 	private FrameLayout about_fl;
@@ -84,12 +86,14 @@ public class MainActivity extends Activity {
 	private NoteAdapter noteAdapter;
 
 	private RelativeLayout empty_note_view;
+	private RelativeLayout layout_info;
 
 	private FrameLayout list_fl, edit_fl;
 
 	private EditText edittext_note;
 	private CheckBox fav_checkBox;
 	private TextView time_text;
+	private TableLayout layout_share;
 
 	/*** 搜索栏  ***/
 	private EditText edittext_search;
@@ -122,6 +126,8 @@ public class MainActivity extends Activity {
 		viewstub_about = (ViewStub) findViewById(R.id.viewstub_about);
 		viewstub_about.inflate();
 		about_fl = (FrameLayout) findViewById(R.id.about_fl);
+		layout_share = (TableLayout) findViewById(R.id.layout_share);
+		layout_info = (RelativeLayout) findViewById(R.id.layout_info);
 		about_bg = findViewById(R.id.about_bg);
 
 		send_rl = (RelativeLayout) View.inflate(this, R.layout.send_dialog,
@@ -174,6 +180,7 @@ public class MainActivity extends Activity {
 		left_out = AnimationUtils.loadAnimation(this, R.anim.left_out);
 		right_out = AnimationUtils.loadAnimation(this, R.anim.right_out);
 		right_in = AnimationUtils.loadAnimation(this, R.anim.right_in);
+		fade_in_300 = AnimationUtils.loadAnimation(this,R.anim.fade_in_100);
 		zoom_translate = AnimationUtils.loadAnimation(this,
 				R.anim.zoom_translate);
 
@@ -296,21 +303,30 @@ public class MainActivity extends Activity {
 		fade_in.setAnimationListener(new MyAnimationListener(about_bg));
 		about_bg.startAnimation(fade_in);
 		about_bg.setVisibility(View.VISIBLE);
+		about_bg.setClickable(true);
+
 		CommonUtils.stack.push(ConstantData.INFOR_DIALOG);
 	}
 
 	public void hideInfoDialog(View view) {
 
-		bottom_out_anim.setAnimationListener(new MyAnimationListener(about_fl));
+		bottom_out_anim.setAnimationListener(new MyHideAnimationListener(new View[]{about_fl}));
 		about_fl.startAnimation(bottom_out_anim);
-		about_fl.setVisibility(View.INVISIBLE);
-
-		fade_out.setAnimationListener(new MyAnimationListener(about_bg));
+		about_bg.setClickable(false);
+		fade_out.setAnimationListener(new MyHideAnimationListener(new View[]{viewstub_about, about_bg}));
 		about_bg.startAnimation(fade_out);
-		about_bg.setVisibility(View.GONE);
-		viewstub_about.setVisibility(View.GONE);
+//		layout_share.setVisibility(View.GONE);
+//		layout_info.setVisibility(View.VISIBLE);
 
 		CommonUtils.stack.pop();
+	}
+
+	public void share(View view)
+	{
+		fade_in_300.setAnimationListener(new MyAnimationListener(layout_share));
+		layout_share.startAnimation(fade_in_300);
+		layout_share.setVisibility(View.VISIBLE);
+		layout_info.setVisibility(View.GONE);
 	}
 
 	public void showFinish()
