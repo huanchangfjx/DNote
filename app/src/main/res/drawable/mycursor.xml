@@ -3,4 +3,8 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <size android:width="2.0dip" />
     <solid android:color="@color/cursor_color" />
+
+  <padding
+      android:top="2dp"
+      android:bottom="-20dp" />
 </shape>
