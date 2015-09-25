@@ -20,11 +20,22 @@ public class NoteAdapter extends ArrayAdapter<NoteModel>{
 	
 	private int resourceId;
 
+	private List<NoteModel> objects;
+
 	public NoteAdapter(Context context, int resource,
 			List<NoteModel> objects) {
 		super(context, resource, objects);
 		// TODO Auto-generated constructor stub
+		this.objects = objects;
 		resourceId = resource;
+	}
+
+	public void setUp()
+	{
+		for (NoteModel object : objects) {
+			object.setIsUp(true);
+		}
+		this.notifyDataSetChanged();
 	}
 
 	@Override
@@ -73,6 +84,15 @@ public class NoteAdapter extends ArrayAdapter<NoteModel>{
 		else
 		{
 			viewHolder.fav_image.setVisibility(View.INVISIBLE);
+		}
+
+		if(noteModel.isUp())
+		{
+			viewHolder.clip_image.setImageResource(R.mipmap.clip_up);
+		}
+		else
+		{
+			viewHolder.clip_image.setImageResource(R.mipmap.clip_normal);
 		}
 		return view;
 	}

@@ -268,13 +268,16 @@ public class MainActivity extends Activity {
                         noteFinishState();
                     }
                 });
+    }
 
+    public void setUp()
+    {
+        for (NoteModel model : dataList) {
+            model.setIsUp(true);
+        }
     }
 
     public DragSortController buildController(DragSortListView dslv) {
-        // defaults are
-        // dragStartMode = onDown
-        // removeMode = flingRight
         DragSortController controller = new DragSortController(dslv);
         controller.setDragHandleId(R.id.drag_handle);
         controller.setClickRemoveId(R.id.click_remove);

@@ -5,7 +5,7 @@ public class NoteModel {
 	private String noteTime;
 	private String noteContent;
 	private boolean isFav;
-	
+	private boolean isUp;
 
 	public boolean isFav() {
 		return isFav;
@@ -31,6 +31,12 @@ public class NoteModel {
 	public void setNoteContent(String noteContent) {
 		this.noteContent = noteContent;
 	}
-	
-	
+
+	public boolean isUp() {
+		return isUp;
+	}
+
+	public void setIsUp(boolean isUp) {
+		this.isUp = isUp;
+	}
 }
