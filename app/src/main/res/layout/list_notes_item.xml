@@ -102,8 +102,6 @@
                         android:textSize="@dimen/list_detail_text_size" />
                 </RelativeLayout>
             </FrameLayout>
-
-
     </LinearLayout>
 
     <LinearLayout

@@ -277,6 +277,13 @@ public class MainActivity extends Activity {
         }
     }
 
+    public void setDown()
+    {
+        for (NoteModel model : dataList) {
+            model.setIsUp(false);
+        }
+    }
+
     public DragSortController buildController(DragSortListView dslv) {
         DragSortController controller = new DragSortController(dslv);
         controller.setDragHandleId(R.id.drag_handle);
