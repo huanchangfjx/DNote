@@ -36,69 +36,74 @@
         android:layout_marginTop="0.0px"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
-
-        <RelativeLayout
-            android:layout_width="0.0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.0"
-            android:background="@drawable/list_item_back"
-            android:orientation="vertical"
-            android:paddingTop="@dimen/list_item_content_padding_top" >
-
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
-
-
-                <LinearLayout
+            <FrameLayout
+                android:layout_width="0.0dip"
+                android:layout_weight="1.0"
+                android:layout_height="wrap_content">
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="7.5dip"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="@dimen/list_item_content_padding_left"
-                    android:paddingRight="@dimen/list_item_content_padding_right" >
+                    android:background="@drawable/list_item_back"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/list_item_content_padding_top" >
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" >
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="7.5dip"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/list_item_content_padding_left"
+                            android:paddingRight="@dimen/list_item_content_padding_right" >
+
+                            <TextView
+                                android:id="@+id/ago_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:singleLine="true"
+                                android:textColor="@color/time_color"
+                                android:textSize="@dimen/time_text_size" />
+
+                            <TextView
+                                android:id="@+id/time_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/list_item_textview_time_margin_left"
+                                android:ellipsize="end"
+                                android:singleLine="true"
+                                android:textColor="@color/time_color"
+                                android:textSize="@dimen/time_text_size" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/fav_image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="@dimen/list_item_imageview_fav_margin_right"
+                            android:background="@mipmap/star_small"
+                            android:visibility="invisible" />
+                    </RelativeLayout>
 
                     <TextView
-                        android:id="@+id/ago_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:singleLine="true"
-                        android:textColor="@color/time_color"
-                        android:textSize="@dimen/time_text_size" />
+                        android:id="@+id/summary_text"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/list_item_summary_height"
+                        android:layout_marginTop="@dimen/list_item_summary_margin_top"
+                        android:lineSpacingExtra="@dimen/list_item_summary_linespace"
+                        android:paddingLeft="@dimen/list_item_summary_padding_left"
+                        android:paddingRight="@dimen/list_item_summary_padding_right"
+                        android:textColor="@color/detail_color"
+                        android:textSize="@dimen/list_detail_text_size" />
+                </RelativeLayout>
+            </FrameLayout>
 
-                    <TextView
-                        android:id="@+id/time_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/list_item_textview_time_margin_left"
-                        android:ellipsize="end"
-                        android:singleLine="true"
-                        android:textColor="@color/time_color"
-                        android:textSize="@dimen/time_text_size" />
-                </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/fav_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/list_item_imageview_fav_margin_right"
-                    android:background="@mipmap/star_small"
-                    android:visibility="invisible" />
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/summary_text"
-                android:layout_width="fill_parent"
-                android:layout_height="@dimen/list_item_summary_height"
-                android:layout_marginTop="@dimen/list_item_summary_margin_top"
-                android:lineSpacingExtra="@dimen/list_item_summary_linespace"
-                android:paddingLeft="@dimen/list_item_summary_padding_left"
-                android:paddingRight="@dimen/list_item_summary_padding_right"
-                android:textColor="@color/detail_color"
-                android:textSize="@dimen/list_detail_text_size" />
-        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout

@@ -14,8 +14,9 @@ import android.widget.TextView;
 import com.brcorner.dnote.android.R;
 import com.brcorner.dnote.android.data.ConstantData;
 import com.brcorner.dnote.android.model.NoteModel;
+import com.brcorner.drag_sort_listview_lib.DragSortListView;
 
-public class NoteAdapter extends ArrayAdapter<NoteModel>{
+public class NoteAdapter extends ArrayAdapter<NoteModel> implements DragSortListView.DropListener{
 	
 	
 	private int resourceId;
@@ -96,7 +97,16 @@ public class NoteAdapter extends ArrayAdapter<NoteModel>{
 		}
 		return view;
 	}
-	
+
+	@Override
+	public void drop(int from, int to) {
+		if (from != to) {
+			NoteModel item = this.getItem(from);
+			this.remove(item);
+			this.insert(item, to);
+		}
+	}
+
 	class ViewHolder{
 		TextView ago_text;
 		TextView time_text;
