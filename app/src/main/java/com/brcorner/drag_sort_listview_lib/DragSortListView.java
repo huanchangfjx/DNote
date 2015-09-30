@@ -1973,7 +1973,7 @@ private class AdapterWrapper extends BaseAdapter {
         if (position != mSrcPos && position != mFirstExpPos && position != mSecondExpPos) {
             height = ViewGroup.LayoutParams.WRAP_CONTENT;
         } else {
-            height = calcItemHeight(position, changView, invalidChildHeight);
+            height = calcItemHeight(position, changView, invalidChildHeight) ;
         }
 
         if (height != clp.height) {
@@ -1986,15 +1986,16 @@ private class AdapterWrapper extends BaseAdapter {
             if (position < mSrcPos) {
 //                ((DragSortItemView) v).setGravity(Gravity.BOTTOM);
                 changView.setGravity(Gravity.BOTTOM);
+                Log.v("Bottom", String.valueOf(position));
             } else if (position > mSrcPos) {
 //                ((DragSortItemView) v).setGravity(Gravity.TOP);
+                Log.v("TOP", String.valueOf(position));
                 changView.setGravity(Gravity.TOP);
             }
         }
 
         // Finally adjust item visibility
-
-        int oldVis = changView.getVisibility();
+        int oldVis = v.getVisibility();
         int vis = View.VISIBLE;
 
         if (position == mSrcPos && mFloatView != null) {
@@ -2002,6 +2003,7 @@ private class AdapterWrapper extends BaseAdapter {
         }
 
         if (vis != oldVis) {
+            v.setVisibility(vis);
             changView.setVisibility(vis);
         }
     }
