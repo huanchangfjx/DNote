@@ -41,14 +41,11 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.Checkable;
-import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.brcorner.dnote.android.R;
 import com.brcorner.drag_sort_listview_lib.DragSortController;
-import com.brcorner.drag_sort_listview_lib.DragSortItemView;
-import com.brcorner.drag_sort_listview_lib.DragSortItemViewCheckable;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -644,190 +641,114 @@ public class DragSortListView extends ListView {
         }
     }
 
-//    private class AdapterWrapper extends BaseAdapter {
-//        private ListAdapter mAdapter;
-//
-//        public AdapterWrapper(ListAdapter adapter) {
-//            super();
-//            mAdapter = adapter;
-//
-//            mAdapter.registerDataSetObserver(new DataSetObserver() {
-//                public void onChanged() {
-//                    notifyDataSetChanged();
-//                }
-//
-//                public void onInvalidated() {
-//                    notifyDataSetInvalidated();
-//                }
-//            });
-//        }
-//
-//        public ListAdapter getAdapter() {
-//            return mAdapter;
-//        }
-//
-//        @Override
-//        public long getItemId(int position) {
-//            return mAdapter.getItemId(position);
-//        }
-//
-//        @Override
-//        public Object getItem(int position) {
-//            return mAdapter.getItem(position);
-//        }
-//
-//        @Override
-//        public int getCount() {
-//            return mAdapter.getCount();
-//        }
-//
-//        @Override
-//        public boolean areAllItemsEnabled() {
-//            return mAdapter.areAllItemsEnabled();
-//        }
-//
-//        @Override
-//        public boolean isEnabled(int position) {
-//            return mAdapter.isEnabled(position);
-//        }
-//
-//        @Override
-//        public int getItemViewType(int position) {
-//            return mAdapter.getItemViewType(position);
-//        }
-//
-//        @Override
-//        public int getViewTypeCount() {
-//            return mAdapter.getViewTypeCount();
-//        }
-//
-//        @Override
-//        public boolean hasStableIds() {
-//            return mAdapter.hasStableIds();
-//        }
-//
-//        @Override
-//        public boolean isEmpty() {
-//            return mAdapter.isEmpty();
-//        }
-//
-//
-//        @Override
-//        public View getView(int position, View convertView, ViewGroup parent) {
-//
-//            DragSortItemView v;
-//            View child;
-//            // Log.d("mobeta",
-//            // "getView: position="+position+" convertView="+convertView);
-//            if (convertView != null) {
-//                v = (DragSortItemView) convertView;
-//                View oldChild = v.getChildAt(0);
-//
-//                child = mAdapter.getView(position, oldChild, DragSortListView.this);
-//                if (child != oldChild) {
-//                    // shouldn't get here if user is reusing convertViews
-//                    // properly
-//                    if (oldChild != null) {
-//                        v.removeViewAt(0);
-//                    }
-//                    v.addView(child);
-//                }
-//            } else {
-//                child = mAdapter.getView(position, null, DragSortListView.this);
-//                if (child instanceof Checkable) {
-//                    v = new DragSortItemViewCheckable(getContext());
-//                } else {
-//                    v = new DragSortItemView(getContext());
-//                }
-//                v.setLayoutParams(new AbsListView.LayoutParams(
-//                        ViewGroup.LayoutParams.FILL_PARENT,
-//                        ViewGroup.LayoutParams.WRAP_CONTENT));
-//                v.addView(child);
-//            }
-//
-//            // Set the correct item height given drag state; passed
-//            // View needs to be measured if measurement is required.
-//            adjustItem(position + getHeaderViewsCount(), v, true);
-//
-//            return v;
-//        }
-//    }
-private class AdapterWrapper extends BaseAdapter {
-    private ListAdapter mAdapter;
+    private class AdapterWrapper extends BaseAdapter {
+        private ListAdapter mAdapter;
 
-    public AdapterWrapper(ListAdapter adapter) {
-        super();
-        mAdapter = adapter;
+        public AdapterWrapper(ListAdapter adapter) {
+            super();
+            mAdapter = adapter;
 
-        mAdapter.registerDataSetObserver(new DataSetObserver() {
-            public void onChanged() {
-                notifyDataSetChanged();
+            mAdapter.registerDataSetObserver(new DataSetObserver() {
+                public void onChanged() {
+                    notifyDataSetChanged();
+                }
+
+                public void onInvalidated() {
+                    notifyDataSetInvalidated();
+                }
+            });
+        }
+
+        public ListAdapter getAdapter() {
+            return mAdapter;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return mAdapter.getItemId(position);
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return mAdapter.getItem(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mAdapter.getCount();
+        }
+
+        @Override
+        public boolean areAllItemsEnabled() {
+            return mAdapter.areAllItemsEnabled();
+        }
+
+        @Override
+        public boolean isEnabled(int position) {
+            return mAdapter.isEnabled(position);
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            return mAdapter.getItemViewType(position);
+        }
+
+        @Override
+        public int getViewTypeCount() {
+            return mAdapter.getViewTypeCount();
+        }
+
+        @Override
+        public boolean hasStableIds() {
+            return mAdapter.hasStableIds();
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return mAdapter.isEmpty();
+        }
+
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            DragSortItemView v;
+            View child;
+            // Log.d("mobeta",
+            // "getView: position="+position+" convertView="+convertView);
+            if (convertView != null) {
+                v = (DragSortItemView) convertView;
+                View oldChild = v.getChildAt(0);
+
+                child = mAdapter.getView(position, oldChild, DragSortListView.this);
+                if (child != oldChild) {
+                    // shouldn't get here if user is reusing convertViews
+                    // properly
+                    if (oldChild != null) {
+                        v.removeViewAt(0);
+                    }
+                    v.addView(child);
+                }
+            } else {
+                child = mAdapter.getView(position, null, DragSortListView.this);
+                if (child instanceof Checkable) {
+                    v = new DragSortItemViewCheckable(getContext());
+                } else {
+                    v = new DragSortItemView(getContext());
+                }
+                v.setLayoutParams(new AbsListView.LayoutParams(
+                        ViewGroup.LayoutParams.FILL_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT));
+                v.addView(child);
             }
 
-            public void onInvalidated() {
-                notifyDataSetInvalidated();
-            }
-        });
+            // Set the correct item height given drag state; passed
+            // View needs to be measured if measurement is required.
+            adjustItem(position + getHeaderViewsCount(), v, true);
+
+            return v;
+        }
     }
-
-    public ListAdapter getAdapter() {
-        return mAdapter;
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return mAdapter.getItemId(position);
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return mAdapter.getItem(position);
-    }
-
-    @Override
-    public int getCount() {
-        return mAdapter.getCount();
-    }
-
-    @Override
-    public boolean areAllItemsEnabled() {
-        return mAdapter.areAllItemsEnabled();
-    }
-
-    @Override
-    public boolean isEnabled(int position) {
-        return mAdapter.isEnabled(position);
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        return mAdapter.getItemViewType(position);
-    }
-
-    @Override
-    public int getViewTypeCount() {
-        return mAdapter.getViewTypeCount();
-    }
-
-    @Override
-    public boolean hasStableIds() {
-        return mAdapter.hasStableIds();
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return mAdapter.isEmpty();
-    }
-
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View v = mAdapter.getView(position,convertView,parent);
-        adjustItem(position + getHeaderViewsCount(), v, true);
-
-        return v;
-    }
-}
 
     private void drawDivider(int expPosition, Canvas canvas) {
 
@@ -1965,36 +1886,30 @@ private class AdapterWrapper extends BaseAdapter {
     private void adjustItem(int position, View v, boolean invalidChildHeight) {
 
         // Adjust item height
-//        ViewGroup.LayoutParams lp = v.getLayoutParams();
-        LinearLayout changView = (LinearLayout) v.findViewById(R.id.drag_handle);
-        ViewGroup.LayoutParams clp = changView.getLayoutParams();
-
+        ViewGroup.LayoutParams lp = v.getLayoutParams();
         int height;
         if (position != mSrcPos && position != mFirstExpPos && position != mSecondExpPos) {
             height = ViewGroup.LayoutParams.WRAP_CONTENT;
         } else {
-            height = calcItemHeight(position, changView, invalidChildHeight) ;
+            height = calcItemHeight(position, v, invalidChildHeight);
         }
 
-        if (height != clp.height) {
-            clp.height = height;
-            changView.setLayoutParams(clp);
+        if (height != lp.height) {
+            lp.height = height;
+            v.setLayoutParams(lp);
         }
 
         // Adjust item gravity
         if (position == mFirstExpPos || position == mSecondExpPos) {
             if (position < mSrcPos) {
-//                ((DragSortItemView) v).setGravity(Gravity.BOTTOM);
-                changView.setGravity(Gravity.BOTTOM);
-                Log.v("Bottom", String.valueOf(position));
+                ((DragSortItemView) v).setGravity(Gravity.BOTTOM);
             } else if (position > mSrcPos) {
-//                ((DragSortItemView) v).setGravity(Gravity.TOP);
-                Log.v("TOP", String.valueOf(position));
-                changView.setGravity(Gravity.TOP);
+                ((DragSortItemView) v).setGravity(Gravity.TOP);
             }
         }
 
         // Finally adjust item visibility
+
         int oldVis = v.getVisibility();
         int vis = View.VISIBLE;
 
@@ -2004,7 +1919,6 @@ private class AdapterWrapper extends BaseAdapter {
 
         if (vis != oldVis) {
             v.setVisibility(vis);
-            changView.setVisibility(vis);
         }
     }
 
@@ -2063,6 +1977,7 @@ private class AdapterWrapper extends BaseAdapter {
         if (position == mSrcPos) {
             return 0;
         }
+
         View child;
         if (position < getHeaderViewsCount() || position >= getCount() - getFooterViewsCount()) {
             child = item;
@@ -2093,7 +2008,7 @@ private class AdapterWrapper extends BaseAdapter {
     }
 
     private int calcItemHeight(int position, int childHeight) {
-        Log.v("childHeight",position + "-------" +childHeight);
+
         int divHeight = getDividerHeight();
 
         boolean isSliding = mAnimate && mFirstExpPos != mSecondExpPos;
@@ -2360,7 +2275,7 @@ private class AdapterWrapper extends BaseAdapter {
         mFloatLoc.y = mY - mDragDeltaY;
 
         // set src item invisible
-        final View srcItem = getChildAt(mSrcPos - getFirstVisiblePosition()).findViewById(R.id.drag_handle);
+        final View srcItem = getChildAt(mSrcPos - getFirstVisiblePosition());
 
         if (srcItem != null) {
             srcItem.setVisibility(View.INVISIBLE);

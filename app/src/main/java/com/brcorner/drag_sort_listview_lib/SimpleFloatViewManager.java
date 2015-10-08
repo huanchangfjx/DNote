@@ -41,8 +41,10 @@ public class SimpleFloatViewManager implements DragSortListView.FloatViewManager
     public View onCreateFloatView(int position) {
         // Guaranteed that this will not be null? I think so. Nope, got
         // a NullPointerException once...
-        View v = mListView.getChildAt(position + mListView.getHeaderViewsCount() - mListView.getFirstVisiblePosition()).findViewById(R.id.drag_handle);
-
+//        View v = mListView.getChildAt(position + mListView.getHeaderViewsCount() - mListView.getFirstVisiblePosition()).findViewById(R.id.drag_handle);
+        View v = mListView.getChildAt(position + mListView.getHeaderViewsCount() - mListView.getFirstVisiblePosition());
+        View bg = v.findViewById(R.id.rl_bg);
+        bg.setBackgroundResource(R.mipmap.list_item_bg_down);
         if (v == null) {
             return null;
         }
@@ -63,6 +65,8 @@ public class SimpleFloatViewManager implements DragSortListView.FloatViewManager
         mImageView.setPadding(0, 0, 0, 0);
         mImageView.setImageBitmap(mFloatBitmap);
         mImageView.setLayoutParams(new ViewGroup.LayoutParams(v.getWidth(), v.getHeight()));
+        bg.setBackgroundResource(R.mipmap.list_item_bg);
+
         return mImageView;
     }
 

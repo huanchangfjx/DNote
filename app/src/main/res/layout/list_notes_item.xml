@@ -24,6 +24,9 @@
             android:shadowDy="-2.0"
             android:shadowRadius="0.1"
             android:text="@string/delete"
+            android:focusable="false"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
             android:textColor="#ffffff"
             android:textSize="@dimen/button_text_size" />
     </LinearLayout>
@@ -39,6 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <RelativeLayout
+                    android:id="@+id/rl_bg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/list_item_back"
@@ -110,18 +114,18 @@
         android:gravity="center"
         android:orientation="horizontal" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:gravity="center_vertical"
-        android:paddingBottom="@dimen/list_clip_item_padding_bottom"
-        android:paddingTop="@dimen/list_clip_item_padding_top" >
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:paddingBottom="@dimen/list_clip_item_padding_bottom"-->
+        <!--android:paddingTop="@dimen/list_clip_item_padding_top" >-->
 
-        <ImageView
-            android:id="@+id/clip_image"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:contentDescription="@string/app_name" />
-    </LinearLayout>
+        <!--<ImageView-->
+            <!--android:id="@+id/clip_image"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="fill_parent"-->
+            <!--android:contentDescription="@string/app_name" />-->
+    <!--</LinearLayout>-->
 
 </FrameLayout>

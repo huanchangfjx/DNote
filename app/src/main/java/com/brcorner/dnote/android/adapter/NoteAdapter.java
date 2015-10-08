@@ -60,7 +60,7 @@ public class NoteAdapter extends ArrayAdapter<NoteModel> implements DragSortList
 			viewHolder.time_text = (TextView) view.findViewById(R.id.time_text);
 			viewHolder.summary_text = (TextView) view.findViewById(R.id.summary_text);
 			viewHolder.fav_image = (ImageView) view.findViewById(R.id.fav_image);
-			viewHolder.clip_image = (ImageView) view.findViewById(R.id.clip_image);
+//			viewHolder.clip_image = (ImageView) view.findViewById(R.id.clip_image);
 			view.setTag(viewHolder);
 		}
 		else
@@ -87,14 +87,14 @@ public class NoteAdapter extends ArrayAdapter<NoteModel> implements DragSortList
 			viewHolder.fav_image.setVisibility(View.INVISIBLE);
 		}
 
-		if(noteModel.isUp())
-		{
-			viewHolder.clip_image.setImageResource(R.mipmap.clip_up);
-		}
-		else
-		{
-			viewHolder.clip_image.setImageResource(R.mipmap.clip_normal);
-		}
+//		if(noteModel.isUp())
+//		{
+//			viewHolder.clip_image.setImageResource(R.mipmap.clip_up);
+//		}
+//		else
+//		{
+//			viewHolder.clip_image.setImageResource(R.mipmap.clip_normal);
+//		}
 		return view;
 	}
 
@@ -112,7 +112,7 @@ public class NoteAdapter extends ArrayAdapter<NoteModel> implements DragSortList
 		TextView time_text;
 		ImageView fav_image;
 		TextView summary_text;
-		ImageView clip_image;
+//		ImageView clip_image;
 	}
 	
 	

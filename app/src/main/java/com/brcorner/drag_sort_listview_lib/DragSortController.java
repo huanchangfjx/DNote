@@ -268,9 +268,9 @@ public class DragSortController extends SimpleFloatViewManager implements View.O
                         mDslv.stopDragWithVelocity(true, 0);
                     }
                 }
-
-                ((MainActivity)mDslv.getContext()).setDown();
-                ((BaseAdapter)((HeaderViewListAdapter)mDslv.getAdapter()).getWrappedAdapter()).notifyDataSetChanged();
+//
+//                ((MainActivity)mDslv.getContext()).setDown();
+//                ((BaseAdapter)((HeaderViewListAdapter)mDslv.getAdapter()).getWrappedAdapter()).notifyDataSetChanged();
             case MotionEvent.ACTION_CANCEL:
                 mIsRemoving = false;
                 mDragging = false;
@@ -429,8 +429,8 @@ public class DragSortController extends SimpleFloatViewManager implements View.O
         if (mHitPos != MISS && mDragInitMode == ON_LONG_PRESS) {
             mDslv.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
             startDrag(mHitPos, mCurrX - mItemX, mCurrY - mItemY);
-            ((MainActivity)mDslv.getContext()).setUp();
-            ((BaseAdapter)((HeaderViewListAdapter)mDslv.getAdapter()).getWrappedAdapter()).notifyDataSetChanged();
+//            ((MainActivity)mDslv.getContext()).setUp();
+//            ((BaseAdapter)((HeaderViewListAdapter)mDslv.getAdapter()).getWrappedAdapter()).notifyDataSetChanged();
         }
     }
 
